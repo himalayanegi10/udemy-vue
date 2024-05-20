@@ -18,9 +18,23 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="counter++">Add</button>
-      <button v-on:click="counter--">Remove</button>
+      <button v-on:click="add(8)">Add</button>
+      <button v-on:click.middle="sub(3)">Remove</button>
+      <!--.middle will fire click event only when the mouse middle button is clicked -->
+      <p v-once>Initial counter : {{counter}}</p>
+      <!-- v-once directive only renders the value of the interpolated tag once -->
       <p>Result: {{ counter }}</p>
+      <input
+        type="text"
+        v-on:input="setName($event, 'Pereira')"
+        v-on:keyup.enter="confirmName"
+      /><!--.enter will fire the event when an Enter key is pressed up-->
+      <p>Your name : {{finalName}}</p>
+      <form v-on:submit.prevent="submitForm($event)">
+        <!-- .prevent modifier Prevents the page from reloading on form submit-->
+        <input type="text" />
+        <button>Submit</button>
+      </form>
     </section>
   </body>
 </html>
