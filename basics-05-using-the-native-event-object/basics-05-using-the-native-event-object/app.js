@@ -5,6 +5,16 @@ const app = Vue.createApp({
       name: "",
     };
   },
+  computed: {
+    fullName() {
+      console.log("Running fullName");
+      if (this.name === "") {
+        return "";
+      }
+      return this.name + " " + "Ibrahimovich";
+    },
+  },
+
   methods: {
     setName(event, lastName) {
       this.name = event.target.value;
@@ -19,6 +29,16 @@ const app = Vue.createApp({
     resetInput() {
       this.name = "";
     },
+    // outputFullName() {
+    //   console.log("Running outputFullName()");
+    //   if (this.name === "") {
+    //     return "";
+    //   }
+    //   return this.name + " " + "Ibrahimovich";
+    // },
+    // Above code is not optimized for performance, Vuejs doesn't know if the method
+    // changes any data property hence it needs to re-run the method to keep DOM updated.
+    // Use computed property for performance optimization
   },
 });
 
