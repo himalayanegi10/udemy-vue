@@ -18,8 +18,8 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="add(10)">Add 10</button>
-      <button v-on:click="reduce(5)">Subtract 5</button>
+      <button @click="add(10)">Add 10</button>
+      <button @click="reduce(5)">Subtract 5</button>
       <p>Result: {{ counter }}</p>
       <!-- <input
         type="text"
@@ -29,7 +29,8 @@
       <input type="text" v-model="name" />
       <input type="text" v-model="lastName" />
       <!-- In two way binding v-model="name" is equivalent to v-bind:value v-on:input-->
-      <button v-on:click.prevent="resetInput">Reset Name</button>
+      <button @click.prevent="resetInput">Reset Name</button>
+      <!-- @ is shorthand for v-on: and : is shorthand for v-bind -->
       <p>Your Name: {{ fullName }}</p>
     </section>
   </body>
