@@ -50,6 +50,22 @@ export default {
       // }
     }
   },
+  // Most basic form of emits . Used to help other devs know what component are emitted in below code
+  emits: [
+      'toggle-favorite'
+  ],
+  // Below code snippet is for detailed emits
+
+  // emits:{
+  //   'toggle-favorite': function (id) {
+  //     if (id) {
+  //       return true;
+  //     } else {
+  //       console.warn("no id")
+  //       return false;
+  //     }
+  //   }
+  // },
   data() {
     return {
       detailsAreVisible: false,
@@ -64,6 +80,7 @@ export default {
       // this.friendIsFavorite = !this.friendIsFavorite;
       // move toggle logic to parent component
       this.$emit('toggle-favorite', this.id);
+      // this.$emit('toggle-favorite');
     }
 
   }
