@@ -3,6 +3,7 @@
     <h2>{{ name }} {{ isFavorite ? '(Favorite)': ''}}</h2>
     <button @click="toggleFavorite">{{ isFavorite ? 'Unmake' : 'Make' }} Favorite</button>
     <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }} Details</button>
+    <button @click="$emit('delete-contact', id)"> Delete Contact </button>
     <ul v-if="detailsAreVisible">
       <li>
         <strong>Phone:</strong>
@@ -52,7 +53,8 @@ export default {
   },
   // Most basic form of emits . Used to help other devs know what component are emitted in below code
   emits: [
-      'toggle-favorite'
+      'toggle-favorite',
+      'delete-contact'
   ],
   // Below code snippet is for detailed emits
 
